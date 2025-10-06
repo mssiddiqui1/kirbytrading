@@ -1,478 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>eBay-style Store — Demo</title>
-  <meta name="description" content="Responsive demo store template (eBay-style) - product grid, search, filters, mobile nav." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My eBay Store</title>
+  <meta name="description" content="Responsive eBay store embed page." />
   <style>
-    /* ========== Base / Reset ========== */
-    :root{
-      --bg:#f7f7f9;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#0064d2;
-      --accent-2:#ff6f00;
-      --radius:12px;
-      --container-padding:1rem;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:#0f172a;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.4;
-      font-size:16px;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block;height:auto}
-
-    /* ========== Layout ========== */
-    .site {
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
-    }
-    header{
-      background:linear-gradient(90deg,#fff, #fbfdff);
-      border-bottom:1px solid #e6e9ee;
-      position:sticky;
-      top:0;
-      z-index:30;
-    }
-    .topbar{
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      padding:0.75rem var(--container-padding);
-      max-width:1200px;
-      margin:0 auto;
+    :root {
+      --accent: #0064d2;
+      --bg: #f8f9fb;
+      --text: #1e293b;
+      --radius: 12px;
     }
 
-    /* Logo */
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-      font-weight:700;
-      font-size:1.05rem;
-      color:var(--accent);
-    }
-    .logo .badge{
-      background:var(--accent-2);
-      color:white;
-      font-weight:700;
-      padding:4px 8px;
-      border-radius:8px;
-      font-size:.85rem;
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Search */
-    .search {
-      flex:1;
-      display:flex;
-      align-items:center;
-      gap:.5rem;
-      margin-left:6px;
-    }
-    .search input{
-      width:100%;
-      padding:10px 12px;
-      border-radius:10px;
-      border:1px solid #dbe2ee;
-      background:#fff;
-      outline:none;
-      font-size:0.95rem;
-    }
-    .search button{
-      margin-left:8px;
-      border:none;
-      background:var(--accent);
-      color:white;
-      padding:10px 12px;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:600;
+    header {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Controls */
-    .controls{
-      display:flex;
-      gap:.6rem;
-      align-items:center;
-      margin-left:8px;
-    }
-    .icon-btn{
-      background:transparent;
-      border:1px solid #e1e6ef;
-      padding:8px;
-      border-radius:10px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:44px;
-      min-height:44px;
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
     }
 
-    /* Hero */
-    .hero{
-      max-width:1200px;
-      margin:1rem auto;
-      padding:0 var(--container-padding);
-      display:grid;
-      grid-template-columns:1fr 320px;
-      gap:1rem;
-    }
-    .hero .promo{
-      background:linear-gradient(180deg,#ffffff,#f3f9ff);
-      border-radius:var(--radius);
-      padding:1.25rem;
-      display:flex;
-      flex-direction:column;
-      gap:.75rem;
-      justify-content:center;
-    }
-    .hero h1{margin:0;font-size:1.5rem}
-    .hero p{margin:0;color:var(--muted)}
-    .hero .side{
-      background:var(--card);
-      border-radius:12px;
-      padding:0.9rem;
-      border:1px solid #eef3fb;
-      display:flex;
-      flex-direction:column;
-      gap:.6rem;
-      align-items:center;
-      justify-content:center;
+    iframe {
+      width: 100%;
+      height: calc(100vh - 70px);
+      border: none;
+      border-radius: 0;
     }
 
-    /* Main content layout */
-    main{
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 var(--container-padding) 2rem;
-      width:100%;
-      display:grid;
-      grid-template-columns: 220px 1fr;
-      gap:1rem;
-      margin-bottom:2.5rem;
+    footer {
+      background: #ffffff;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
     }
 
-    /* Sidebar filters */
-    .filters{
-      position:relative;
+    @media (max-width: 768px) {
+      header {
+        font-size: 1rem;
+        padding: 0.75rem;
+      }
+      iframe {
+        height: calc(100vh - 60px);
+      }
     }
-    .filters .card{
-      background:var(--card);
-      border-radius:12px;
-      padding:0.85rem;
-      border:1px solid #eef3fb;
-      margin-bottom:1rem;
-    }
-    .filters h3{margin:0 0 .5rem 0;font-size:1rem}
-    .filter-list{display:flex;flex-direction:column;gap:.4rem}
-    .filter-list label{font-size:.9rem;color:var(--muted)}
-    .range{
-      display:flex;gap:.5rem;align-items:center;
-    }
-    .range input{width:100%;}
-
-    /* Product grid */
-    .products{
-      display:grid;
-      gap:1rem;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .product{
-      background:var(--card);
-      border-radius:12px;
-      padding:10px;
-      border:1px solid #eef3fb;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      min-height:220px;
-    }
-    .product .media{height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fbfcff,#fff);border-radius:8px;overflow:hidden}
-    .product .title{font-weight:600;font-size:0.95rem}
-    .product .price{font-weight:700;color:var(--accent)}
-    .product .meta{color:var(--muted);font-size:.85rem}
-    .product .actions{margin-top:auto;display:flex;gap:.5rem}
-    .btn{
-      padding:8px 10px;border-radius:10px;border:none;cursor:pointer;font-weight:600;
-    }
-    .btn-outline{background:transparent;border:1px solid #dbe6f7}
-    .btn-primary{background:var(--accent);color:white}
-
-    /* Footer */
-    footer{
-      padding:1.25rem var(--container-padding);
-      background:linear-gradient(180deg,#fff,#fafafa);
-      border-top:1px solid #e6e9ee;
-    }
-    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-
-    /* Responsive: mobile */
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
-      main{grid-template-columns:1fr; padding-top:0.5rem}
-      .products{grid-template-columns:repeat(2,1fr)}
-      .topbar{gap:.5rem}
-      .search input{padding:9px}
-      .logo{font-size:0.98rem}
-    }
-    @media (max-width: 560px){
-      .products{grid-template-columns:1fr}
-      .topbar{padding:.6rem}
-      .controls{display:none}
-      .search input{font-size:.95rem}
-      .icon-btn{min-width:40px;min-height:40px;padding:6px}
-      header .topbar{gap:.5rem}
-    }
-
-    /* Mobile menu */
-    .mobile-nav-toggle{
-      display:none;
-    }
-    @media (max-width: 560px){
-      .mobile-nav-toggle{display:inline-flex}
-    }
-
-    /* Tiny utility */
-    .muted{color:var(--muted);font-size:.9rem}
-    .row{display:flex;gap:.5rem;align-items:center}
-    .chip{padding:6px 8px;border-radius:999px;background:#f1f5f9;border:1px solid #e6eef8;font-size:.85rem}
   </style>
 </head>
 <body>
-  <div class="site" id="site">
 
-    <!-- Header -->
-    <header>
-      <div class="topbar" role="banner">
-        <button class="mobile-nav-toggle icon-btn" aria-label="Open menu" id="mobileMenuBtn">
-          ☰
-        </button>
+  <header>Welcome to My eBay Store</header>
 
-        <div class="logo" aria-hidden="true">
-          <span class="badge">eb</span>
-          <span>eBay-style Store</span>
-        </div>
-
-        <div class="search" role="search">
-          <input id="searchInput" type="search" placeholder="Search for items, brands, or categories..." aria-label="Search products" />
-          <button id="searchBtn" aria-label="Search">Search</button>
-        </div>
-
-        <div class="controls" aria-hidden="true">
-          <button class="icon-btn" title="Saved">★</button>
-          <button class="icon-btn" title="Messages">✉</button>
-          <button class="icon-btn" title="Cart">🛒</button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero" aria-label="Promotions">
-      <div class="promo">
-        <h1>Find great deals — everyday.</h1>
-        <p class="muted">Browse categories, compare prices, and buy with confidence. Free returns on many items.</p>
-
-        <div style="display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap">
-          <span class="chip">Top Rated</span>
-          <span class="chip">Free Shipping</span>
-          <span class="chip">Local Pickup</span>
-        </div>
-      </div>
-      <aside class="side" aria-hidden="true">
-        <div style="font-weight:700">Deal of the Day</div>
-        <div style="font-size:1.05rem;">Wireless Headphones</div>
-        <div style="font-weight:700;color:var(--accent)"> $59.99 </div>
-        <button class="btn btn-primary" style="width:100%">Shop Deal</button>
-      </aside>
-    </section>
-
-    <!-- Main -->
-    <main>
-      <!-- Filters / Sidebar -->
-      <aside class="filters" aria-label="Filters">
-        <div class="card">
-          <h3>Categories</h3>
-          <div class="filter-list">
-            <label><input type="checkbox" checked data-cat="all"> All</label>
-            <label><input type="checkbox" data-cat="electronics"> Electronics</label>
-            <label><input type="checkbox" data-cat="fashion"> Fashion</label>
-            <label><input type="checkbox" data-cat="home"> Home</label>
-            <label><input type="checkbox" data-cat="sports"> Sports</label>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Price</h3>
-          <div class="range">
-            <input type="range" id="priceRange" min="0" max="1000" step="1" value="250" />
-            <div style="min-width:55px;font-weight:700;">$<span id="priceVal">250</span></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Sort</h3>
-          <select id="sortSelect" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6eef8">
-            <option value="relevance">Relevance</option>
-            <option value="price-asc">Price: Low → High</option>
-            <option value="price-desc">Price: High → Low</option>
-            <option value="newest">Newest</option>
-          </select>
-        </div>
-
-      </aside>
-
-      <!-- Products -->
-      <section>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
-          <div class="muted" id="resultsSummary">Showing <strong id="count">12</strong> items</div>
-          <div class="row">
-            <label class="muted" style="font-size:.95rem;margin-right:.5rem">View:</label>
-            <button class="btn btn-outline" onclick="gridCols(4)">4</button>
-            <button class="btn btn-outline" onclick="gridCols(3)">3</button>
-            <button class="btn btn-outline" onclick="gridCols(2)">2</button>
-          </div>
-        </div>
-
-        <div class="products" id="productGrid" aria-live="polite">
-          <!-- Product cards are injected by JavaScript below -->
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer role="contentinfo">
-      <div class="footer-inner">
-        <div class="muted">© <span id="year"></span> eBay-style Store — Demo</div>
-        <div class="muted">Built with ❤️ • Responsive template</div>
-      </div>
-    </footer>
+  <div class="container">
+    <!-- Replace this URL with your actual eBay Store link -->
+    <iframe 
+      src="https://www.ebay.com/usr/kirbytradinginc"
+      title="eBay Store"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
   </div>
 
+  <footer>© <span id="year"></span> My eBay Store — Powered by eBay</footer>
+
   <script>
-    // Sample product data
-    const products = [
-      { id:1, title:"Wireless Headphones", price:59.99, cat:"electronics", img:"https://via.placeholder.com/400x300?text=Headphones", condition:"New" },
-      { id:2, title:"Vintage Leather Jacket", price:89.00, cat:"fashion", img:"https://via.placeholder.com/400x300?text=Jacket", condition:"Used" },
-      { id:3, title:"Espresso Machine", price:129.99, cat:"home", img:"https://via.placeholder.com/400x300?text=Espresso", condition:"New" },
-      { id:4, title:"Mountain Bike", price:299.99, cat:"sports", img:"https://via.placeholder.com/400x300?text=Bicycle", condition:"Used" },
-      { id:5, title:"Smartphone XL", price:499.00, cat:"electronics", img:"https://via.placeholder.com/400x300?text=Phone", condition:"Refurb" },
-      { id:6, title:"Running Shoes", price:69.50, cat:"fashion", img:"https://via.placeholder.com/400x300?text=Shoes", condition:"New" },
-      { id:7, title:"Ceramic Vase", price:22.00, cat:"home", img:"https://via.placeholder.com/400x300?text=Vase", condition:"New" },
-      { id:8, title:"Bluetooth Speaker", price:39.99, cat:"electronics", img:"https://via.placeholder.com/400x300?text=Speaker", condition:"New" },
-      { id:9, title:"Yoga Mat", price:19.99, cat:"sports", img:"https://via.placeholder.com/400x300?text=Yoga+Mat", condition:"New" },
-      { id:10, title:"Designer Handbag", price:240.00, cat:"fashion", img:"https://via.placeholder.com/400x300?text=Handbag", condition:"Used" },
-      { id:11, title:"4K Monitor", price:329.99, cat:"electronics", img:"https://via.placeholder.com/400x300?text=Monitor", condition:"New" },
-      { id:12, title:"Cookware Set", price:79.95, cat:"home", img:"https://via.placeholder.com/400x300?text=Cookware", condition:"New" }
-    ];
-
-    // DOM refs
-    const grid = document.getElementById('productGrid');
-    const priceRange = document.getElementById('priceRange');
-    const priceVal = document.getElementById('priceVal');
-    const countEl = document.getElementById('count');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const sortSelect = document.getElementById('sortSelect');
-    const categoryChecks = Array.from(document.querySelectorAll('.filters input[type="checkbox"]'));
-    const yearEl = document.getElementById('year');
-
-    // Initial render
-    yearEl.textContent = new Date().getFullYear();
-    function render(list){
-      grid.innerHTML = '';
-      list.forEach(p=>{
-        const card = document.createElement('article');
-        card.className = 'product';
-        card.innerHTML = `
-          <div class="media"><img src="${p.img}" alt="${escapeHtml(p.title)}"></div>
-          <div class="title">${escapeHtml(p.title)}</div>
-          <div class="meta">${escapeHtml(p.condition)} • ${escapeHtml(p.cat)}</div>
-          <div class="price">$${Number(p.price).toFixed(2)}</div>
-          <div class="actions">
-            <button class="btn btn-outline" onclick="view(${p.id})">View</button>
-            <button class="btn btn-primary" onclick="addToCart(${p.id})">Add</button>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-      countEl.textContent = list.length;
-    }
-
-    // Escape helper
-    function escapeHtml(text){ return text.replace(/[&<>"']/g, (m)=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[m])); }
-
-    // Filtering logic
-    function applyFilters(){
-      const maxPrice = Number(priceRange.value);
-      const q = searchInput.value.trim().toLowerCase();
-      const activeCats = categoryChecks.filter(c => c.checked && c.dataset.cat !== 'all').map(c => c.dataset.cat);
-      const allChecked = categoryChecks.find(c=>c.dataset.cat==='all')?.checked;
-
-      let results = products.filter(p => p.price <= maxPrice);
-
-      if(!allChecked && activeCats.length) results = results.filter(p => activeCats.includes(p.cat));
-      if(q) results = results.filter(p => (p.title + ' ' + p.cat + ' ' + p.condition).toLowerCase().includes(q));
-
-      // sort
-      const sort = sortSelect.value;
-      if(sort === 'price-asc') results.sort((a,b)=>a.price-b.price);
-      if(sort === 'price-desc') results.sort((a,b)=>b.price-a.price);
-      if(sort === 'newest') results = results.slice().reverse();
-
-      render(results);
-    }
-
-    // Events
-    priceRange.addEventListener('input', ()=>{ priceVal.textContent = priceRange.value; applyFilters(); });
-    searchBtn.addEventListener('click', ()=>applyFilters());
-    searchInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') applyFilters(); });
-    sortSelect.addEventListener('change', applyFilters);
-    categoryChecks.forEach(c => c.addEventListener('change', () => {
-      // if 'all' is checked/unchecked, sync others
-      if(c.dataset.cat === 'all' && c.checked){
-        categoryChecks.forEach(x=>x.checked = (x.dataset.cat === 'all'));
-      } else {
-        // uncheck 'all' if any other is toggled
-        const all = categoryChecks.find(x=>x.dataset.cat==='all');
-        if(all) all.checked = false;
-      }
-      applyFilters();
-    }));
-
-    // Small utility actions
-    function view(id){ alert('View product ID: ' + id); }
-    function addToCart(id){ alert('Added product ID: ' + id + ' to cart (demo).'); }
-
-    // mobile menu toggle (demo)
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    mobileMenuBtn?.addEventListener('click', () => {
-      // For demo we just focus search on mobile
-      const s = document.getElementById('searchInput');
-      s.focus();
-      s.scrollIntoView({behavior:'smooth',block:'center'});
-    });
-
-    // helper to change grid columns (view)
-    function gridCols(n){
-      document.querySelector('.products').style.gridTemplateColumns = `repeat(${n},1fr)`;
-    }
-
-    // initial
-    render(products);
-    // Expose small functions to global scope used by buttons
-    window.view = view;
-    window.addToCart = addToCart;
-    window.gridCols = gridCols;
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
