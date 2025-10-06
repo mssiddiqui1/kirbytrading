@@ -4,13 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My eBay Store</title>
-  <meta name="description" content="Responsive eBay store embed page." />
+  <meta name="description" content="Welcome to my eBay store. Explore great deals and new listings!" />
   <style>
     :root {
       --accent: #0064d2;
-      --bg: #f8f9fb;
+      --accent-hover: #004a9e;
+      --bg: #f8fafc;
       --text: #1e293b;
       --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -21,51 +26,88 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
 
     header {
       background: var(--accent);
       color: #fff;
       text-align: center;
-      padding: 1rem;
-      font-size: 1.2rem;
+      padding: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 600;
-      letter-spacing: 0.3px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.4px;
     }
 
-    .container {
+    main {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0;
+      padding: 2rem;
+      text-align: center;
     }
 
-    iframe {
+    main h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    main p {
+      color: #475569;
+      max-width: 600px;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin: 0 auto 1.8rem auto;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.9rem 1.6rem;
+      font-size: 1.1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .gallery img {
       width: 100%;
-      height: calc(100vh - 70px);
-      border: none;
-      border-radius: 0;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     footer {
-      background: #ffffff;
+      background: #fff;
       text-align: center;
-      padding: 0.75rem;
+      padding: 0.8rem;
       font-size: 0.9rem;
-      border-top: 1px solid #e5e7eb;
-      color: #6b7280;
+      border-top: 1px solid #e2e8f0;
+      color: #64748b;
     }
 
-    @media (max-width: 768px) {
-      header {
-        font-size: 1rem;
-        padding: 0.75rem;
+    @media (max-width: 640px) {
+      main h1 {
+        font-size: 1.6rem;
       }
-      iframe {
-        height: calc(100vh - 60px);
+      .btn {
+        width: 100%;
       }
     }
   </style>
@@ -74,15 +116,20 @@
 
   <header>Welcome to My eBay Store</header>
 
-  <div class="container">
-    <!-- Replace this URL with your actual eBay Store link -->
-    <iframe 
-      src="https://www.ebay.com/usr/kirbytradinginc"
-      title="eBay Store"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
-  </div>
+  <main>
+    <h1>Discover Great Deals & Unique Finds</h1>
+    <p>Shop trusted products at great prices. From electronics to collectibles — we update our listings daily so you can always find something new and exciting!</p>
+
+    <a href="https://www.ebay.com/usr/kirbytradinginc" target="_blank" class="btn">
+      🛒 Visit My eBay Store
+    </a>
+
+    <div class="gallery">
+      <img src="https://via.placeholder.com/400x300?text=Featured+Item+1" alt="Featured Item 1" />
+      <img src="https://via.placeholder.com/400x300?text=Featured+Item+2" alt="Featured Item 2" />
+      <img src="https://via.placeholder.com/400x300?text=Featured+Item+3" alt="Featured Item 3" />
+    </div>
+  </main>
 
   <footer>© <span id="year"></span> My eBay Store — Powered by eBay</footer>
 
